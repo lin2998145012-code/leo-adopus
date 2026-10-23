@@ -9,6 +9,17 @@
 > 🚧 Work in progress. The style library and the first demos are being built in
 > public. Star the repo to follow along.
 
+## First demo: silhouette dancers
+
+![Silhouette dancers demo](docs/demos/silhouette-dancers.gif)
+
+A 15-second spot for fictional earbuds, made entirely in code: real
+motion-capture dancers, a GPU silhouette shader, physics for hair, skirts and
+the white wire, and an original soundtrack synthesized in code.
+[Watch the MP4 with sound](docs/demos/silhouette-dancers.mp4) ·
+[Style file](styles/silhouette-dancers/STYLE.md) ·
+[Film source](films/silhouette-dancers)
+
 ## What it is
 
 leo-adopus is a library of ad styles for coding agents such as Claude Code.
@@ -23,7 +34,14 @@ pacing, copy structure and signature move — so your agent can make an ad for
 - **50 styles, 9 families.** From whitespace print ads to chain reactions,
   screen stories and tearjerkers. See the [style index](styles/README.md).
 
-## How it works (planned)
+## How it works
+
+Each style comes with a demo film: an HTML page that draws every frame, and a
+renderer (`core/render.mjs`) that captures the frames in headless Chromium
+and encodes them with ffmpeg. See the
+[demo film](films/silhouette-dancers/README.md) for commands.
+
+The plugin workflow is planned:
 
 1. Install the plugin into your coding agent.
 2. Describe your product and pick a style, for example:

@@ -44,7 +44,7 @@
 
 | # | Slug | Style | Inspired by | Difficulty | Status |
 |---|---|---|---|---|---|
-| 18 | `silhouette-dancers` | Silhouette dancers | Apple iPod "Silhouettes" (2003) | ★★★ | 🧪 |
+| 18 | [`silhouette-dancers`](silhouette-dancers/STYLE.md) | Silhouette dancers | Apple iPod "Silhouettes" (2003) | ★★★ | ✅ |
 | 19 | `clock-dance-loop` | Clock dance loop | UNIQLO "UNIQLOCK" (2007) | ★★ | 📝 |
 | 20 | `monochrome-manifesto` | Monochrome manifesto | Apple "Think Different" (1997) | ★★ | 📝 |
 

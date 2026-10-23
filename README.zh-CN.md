@@ -8,6 +8,15 @@
 
 > 🚧 开发中。风格库和首批 demo 正在公开构建，点个 Star 关注进展。
 
+## 第一个 demo：剪影舞者
+
+![剪影舞者 demo](docs/demos/silhouette-dancers.gif)
+
+一支为虚构耳机拍的 15 秒广告，全部由代码生成：真实动作捕捉的舞者、GPU 剪影着色器、头发/裙摆/白色耳机线的物理模拟，以及用代码合成的原创配乐。
+[观看带声音的 MP4](docs/demos/silhouette-dancers.mp4) ·
+[风格文件](styles/silhouette-dancers/STYLE.md) ·
+[影片源码](films/silhouette-dancers)
+
 ## 这是什么
 
 leo-adopus 是一套给 Claude Code 等编程 agent 使用的广告风格库。每个风格提炼一支传奇广告的手法：构图、配色、节奏、文案结构和标志性动作，让 agent 为**你的**产品做出一支让人一眼认出原作的广告。
@@ -16,7 +25,11 @@ leo-adopus 是一套给 Claude Code 等编程 agent 使用的广告风格库。�
 - **用代码做，不靠视频模型。** 影片用 HTML、CSS 和 JavaScript 写成，再渲染成 MP4。
 - **50 种风格，9 个大类。** 从留白平面广告到连锁反应、屏幕叙事和催泪短片，见[风格索引](styles/README.md)。
 
-## 怎么用（规划中）
+## 工作方式
+
+每个风格都配一部 demo 影片：一个逐帧绘制画面的 HTML 页面，加上渲染器（`core/render.mjs`），在无头 Chromium 中逐帧截取画面并用 ffmpeg 编码。具体命令见 [demo 影片说明](films/silhouette-dancers/README.md)。
+
+插件工作流还在规划中：
 
 1. 把插件装进你的编程 agent。
 2. 描述你的产品并选一个风格，例如：

@@ -1,0 +1,9 @@
+[
+  { "id": "groove", "subject": "15", "trial": "15_05", "start": 112, "duration": 2.1 },
+  { "id": "jumps", "subject": "49", "trial": "49_02", "start": 5.0, "duration": 2.1 },
+  { "id": "pump", "subject": "15", "trial": "15_05", "start": 135, "duration": 2.1 },
+  { "id": "spin", "subject": "05", "trial": "05_06", "start": 3.5, "duration": 2.1 },
+  { "id": "freeze", "subject": "90", "trial": "90_28", "start": 3.4, "duration": 1.1 },
+  { "id": "sway", "subject": "55", "trial": "55_02", "start": 10.2, "duration": 1.1 },
+  { "id": "leap", "subject": "05", "trial": "05_17", "start": 3.4, "duration": 2.1 }
+]
