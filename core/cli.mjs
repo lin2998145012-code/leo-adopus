@@ -186,7 +186,9 @@ async function render(dir, args) {
   }
 }
 
-function newFilm(dir, args) {
+// Writes a starter brief using the style kit's template.mjs, which turns
+// command-line options into that style's brief.
+async function newFilm(dir, args) {
   if (!dir) fail('usage: adopus new <dir> --style <slug> --name <product> [options]');
   const kits = styleKits().map((k) => k.slug);
   const style = args.style ?? kits[0];
@@ -201,22 +203,11 @@ function newFilm(dir, args) {
     if (resolve(file) !== resolve(dir, name)) copyFileSync(file, join(dir, name));
     return name;
   };
-  const brief = {
-    style,
-    product: {
-      name: args.name,
-      tagline: args.tagline ?? '',
-      image: copyIn(args.product),
-      size: args.size ? Number(args.size) : undefined,
-      line: args.line ?? 'earbuds',
-    },
-    length: Number(args.length ?? 15),
-    aspect: args.aspect ?? '16:9',
-    music: { file: copyIn(args.music), bpm: Number(args.bpm ?? 120) },
-    palette: args.palette ? String(args.palette).split(',') : undefined,
-  };
+  const { template, next } = await import(pathToFileURL(join(ROOT, 'styles', style, 'kit', 'template.mjs')));
+  const brief = { style, ...template(args, copyIn) };
   writeFileSync(join(dir, 'brief.json'), `${JSON.stringify(brief, null, 2)}\n`);
   console.log(`Created ${join(dir, 'brief.json')}`);
+  if (next) console.log(next);
   console.log(`Next: adopus preview ${dir}   then   adopus render ${dir}`);
 }
 

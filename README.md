@@ -7,21 +7,21 @@
 [中文](README.zh-CN.md)
 
 <p>
-  <img src="docs/demos/silhouette-dancers.gif" alt="Silhouette dancers, 16:9" width="640">
-  <img src="docs/demos/flow-bottle.gif" alt="Silhouette dancers, 9:16" width="200">
+  <img src="docs/demos/silhouette-dancers.gif" alt="Silhouette dancers, 16:9" width="560">
+  <img src="docs/demos/flow-bottle.gif" alt="Silhouette dancers, 9:16" width="175">
+  <img src="docs/demos/brewly-year.gif" alt="Year-in-review cards, 9:16" width="175">
 </p>
 
-Two ads from one style, made from two short briefs: wired earbuds in 16:9,
-and a water bottle in 9:16 for Reels and TikTok. Real motion-capture dancers,
-a GPU silhouette shader, physics for hair, skirts and the white wire, and an
+Every film above was made from a short brief, entirely in code, with an
 original soundtrack composed in code.
-[Earbuds MP4](docs/demos/silhouette-dancers.mp4) ·
-[Bottle MP4](docs/demos/flow-bottle.mp4) ·
-[Style file](styles/silhouette-dancers/STYLE.md)
 
-> 🚧 1 of 50 styles renders today: [silhouette dancers](styles/silhouette-dancers/STYLE.md).
-> The rest are planned in the [style index](styles/README.md). Star the repo to
-> follow along.
+| Style | Inspired by | Demos |
+|---|---|---|
+| [Silhouette dancers](styles/silhouette-dancers/STYLE.md) | Apple iPod "Silhouettes" (2003) | [earbuds, 16:9](docs/demos/silhouette-dancers.mp4) · [bottle, 9:16](docs/demos/flow-bottle.mp4) |
+| [Year-in-review cards](styles/year-in-review/STYLE.md) | Spotify Wrapped (2016–) | [coffee app, 9:16](docs/demos/brewly-year.mp4) |
+
+> 🚧 2 of 50 styles render today. The rest are planned in the
+> [style index](styles/README.md). Star the repo to follow along.
 
 ## Use it in Claude Code
 
@@ -41,6 +41,11 @@ Then ask for an ad:
 ```text
 Make a 15-second vertical silhouette-dancers ad for my energy drink ZING.
 The can is ./can.png. Tagline: "Feel the beat."
+```
+
+```text
+Make a year-in-review video for my app Inkwell: 48,200 new writers,
+1.2M notes, top features Search, Sync, Templates, Tags and Share.
 ```
 
 Claude checks your machine, asks for anything missing, shows you a
@@ -74,9 +79,17 @@ node core/cli.mjs render ../my-ad    # → my-ad/out/my-ad.mp4
 | `--music`, `--bpm` | Your own track and its tempo. Without it, an original track is composed. |
 | `--palette` | Background colors: `lime,pink,cyan,yellow,orange,violet` or hex values |
 
+These are the silhouette-dancers options. For a year in review:
+
+```sh
+node core/cli.mjs new ../my-year --style year-in-review --name Inkwell \
+  --url inkwell.so --logo ../logo.svg --year 2026
+# fill in the cards in my-year/brief.json, then preview and render
+```
+
 Everything ends up in the film's `brief.json`, which you can edit by hand,
-down to every shot. The [skill file](skills/make-ad/SKILL.md) documents
-the full format.
+down to every shot or card. Each style file has a Brief section with the
+full format.
 
 ## How it works
 
@@ -89,6 +102,8 @@ the full format.
 - The silhouette kit drives dancers with motion capture, draws their bodies
   as a smooth union of capsules in a WebGL shader, and simulates hair,
   cloth and the wire at 240 Hz.
+- The year-in-review kit draws story cards with canvas 2D: counting
+  numbers, number walls, top-5 lists, popping shapes and iridescent ribbons.
 
 ```text
 .claude-plugin/        plugin and marketplace manifests
@@ -96,7 +111,7 @@ skills/make-ad/        the skill Claude follows
 core/                  CLI, Chrome driver, synthesizer, motion-capture tools
 styles/<slug>/         STYLE.md, and kit/ when the style renders
 examples/              the briefs behind the demos
-assets/fonts/          Inter (SIL Open Font License)
+assets/fonts/          Inter and DM Sans (SIL Open Font License)
 ```
 
 ## Look-alike rules
@@ -125,7 +140,9 @@ repository — code, styles, music and demos — is original work.
 ## Credits and license
 
 Code is released under the [MIT License](LICENSE). Demo films are released
-under CC BY 4.0. The Inter font is under the [SIL Open Font License](assets/fonts/OFL.txt).
+under CC BY 4.0. The [Inter](assets/fonts/inter/OFL.txt) and
+[DM Sans](assets/fonts/dm-sans/OFL.txt) fonts are under the SIL Open Font
+License.
 
 Motion data: the data used in this project was obtained from
 [mocap.cs.cmu.edu](http://mocap.cs.cmu.edu). The database was created with

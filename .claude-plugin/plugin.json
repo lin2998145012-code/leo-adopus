@@ -1,6 +1,6 @@
 {
   "name": "leo-adopus",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Make a product ad video in the style of a legendary ad, rendered entirely in code.",
   "author": {
     "name": "Leo"
@@ -8,5 +8,11 @@
   "homepage": "https://github.com/lin2998145012-code/leo-adopus",
   "repository": "https://github.com/lin2998145012-code/leo-adopus",
   "license": "MIT",
-  "keywords": ["ads", "video", "marketing", "motion graphics", "product video"]
+  "keywords": [
+    "ads",
+    "video",
+    "marketing",
+    "motion graphics",
+    "product video"
+  ]
 }

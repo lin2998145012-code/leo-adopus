@@ -11,5 +11,6 @@ node core/cli.mjs render examples/<name>
 |---|---|---|---|
 | [`adopus-earbuds`](adopus-earbuds/brief.json) | silhouette-dancers | wired earbuds, built-in device, Y wire | 15 s, 16:9 |
 | [`flow-bottle`](flow-bottle/brief.json) | silhouette-dancers | water bottle from `bottle.svg`, no wire | 30 s, 9:16 |
+| [`brewly-year`](brewly-year/brief.json) | year-in-review | a fictional coffee app's year, seven cards | 30 s, 9:16 |
 
 The rendered films are in [`docs/demos`](../docs/demos).

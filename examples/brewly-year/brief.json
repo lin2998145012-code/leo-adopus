@@ -1,0 +1,22 @@
+{
+  "style": "year-in-review",
+  "product": { "name": "Brewly", "url": "brewly.app" },
+  "year": 2026,
+  "aspect": "9:16",
+  "music": { "bpm": 120 },
+  "cards": [
+    { "type": "intro", "title": "Your 2026, one cup at a time" },
+    { "type": "number", "label": "Cups brewed on Brewly", "value": 1284310, "text": "That’s a fresh cup every 25 seconds, all year long." },
+    { "type": "list", "title": "The roasts you couldn’t put down", "items": [
+      { "title": "Ethiopia Yirgacheffe", "sub": "Floral, bright, 212K cups" },
+      { "title": "Colombia Huila", "sub": "Caramel and cocoa" },
+      { "title": "Kenya AA", "sub": "Blackcurrant punch" },
+      { "title": "Brazil Cerrado", "sub": "The comfort pick" },
+      { "title": "Sumatra Mandheling", "sub": "Low, slow, earthy" }
+    ] },
+    { "type": "statement", "title": "You brewed before sunrise 41,000 times.", "text": "Respect." },
+    { "type": "persona", "kicker": "Your coffee personality", "title": "The Early Riser", "text": "First light, first pour. Your mornings ran on Ethiopian beans and good intentions." },
+    { "type": "summary", "title": "Brewly 2026", "list": { "title": "Top roasts", "items": ["Yirgacheffe", "Huila", "Kenya AA", "Cerrado", "Mandheling"] }, "stats": [ { "label": "Cups brewed", "value": "1.28M" }, { "label": "New brewers", "value": "48,200" } ], "cta": "brewly.app" },
+    { "type": "outro", "title": "Thanks for brewing with us", "cta": "brewly.app" }
+  ]
+}

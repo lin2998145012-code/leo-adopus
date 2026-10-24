@@ -80,6 +80,36 @@ These map to the brief (`adopus new` options in parentheses).
 5. Optional: a music file the user owns and its BPM (`--music`, `--bpm`).
    Without one, the kit composes an original track to the cut plan.
 
+## Brief
+
+```jsonc
+{
+  "style": "silhouette-dancers",
+  "product": {
+    "name": "adopus",                 // end card title
+    "tagline": "Move like nobody’s listening.",
+    "image": "product.png",           // optional, relative to the brief
+    "size": 0.092,                    // height in meters when held
+    "tilt": 0.35,                     // 0 = always upright, 1 = follows the forearm
+    "line": "earbuds"                 // or "none"
+  },
+  "length": 15,                       // seconds
+  "aspect": "16:9",
+  "music": { "file": null, "bpm": 120, "offset": 0 }, // offset: first downbeat (s)
+  "palette": ["lime", "pink", "cyan", "yellow", "orange", "violet"], // names or hex
+  "endColor": "violet"                // optional end card color
+}
+```
+
+To control every shot, add a `shots` array. Each shot is
+`{ "t": start, "d": duration, "seg": move, "char": dancer, "hand": "l"|"r", "color": hex }`
+and may override `yaw`, `mirror`, `framing` (`full`, `knee`, `mid`), `fill`,
+`x`, `followY` and `hold`. Moves: `groove`, `groove2`, `jumps`, `pump`,
+`pump2`, `spin`, `spin2`, `lambada`, `freeze`, `sway`, `leap`. Dancers:
+`afro`, `bob`, `cap`, `pony` (skirt; avoid `freeze`), `spike`. Cut on the
+downbeat: shot boundaries should be multiples of one bar (`240 / bpm`
+seconds).
+
 ## Shot list
 
 The kit plans shots from the length and tempo: one shot per bar, cycling

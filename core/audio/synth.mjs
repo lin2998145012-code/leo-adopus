@@ -138,3 +138,43 @@ export function power(root, dur, detune = 0.004, decay = 3) {
     return lp * env;
   };
 }
+
+// Bright synth pluck: two detuned saws through a filter that closes fast.
+export function pluck(freq, dur, bright = 4000) {
+  let lp = 0;
+  return (t) => {
+    let s = 0;
+    for (const d of [-0.006, 0.006]) s += 2 * ((t * freq * (1 + d)) % 1) - 1;
+    const cutoff = 300 + bright * Math.exp(-t * 18);
+    lp += (s * 0.5 - lp) * (1 - Math.exp((-2 * Math.PI * cutoff) / RATE));
+    const env = Math.min(1, t / 0.002) * Math.exp(-t * 7) * (t > dur - 0.02 ? Math.max(0, (dur - t) / 0.02) : 1);
+    return lp * env;
+  };
+}
+
+// Soft chord pad: detuned saws per note, slow attack, low-passed.
+export function pad(freqs, dur, attack = 0.25) {
+  let lp = 0;
+  const a = 1 - Math.exp((-2 * Math.PI * 1400) / RATE);
+  return (t) => {
+    let s = 0;
+    for (const f of freqs) {
+      for (const d of [-0.004, 0, 0.004]) s += 2 * ((t * f * (1 + d)) % 1) - 1;
+    }
+    lp += (s / (freqs.length * 3) - lp) * a;
+    const env = Math.min(1, t / attack) * Math.min(1, Math.max(0, (dur - t) / 0.15));
+    return lp * env;
+  };
+}
+
+// Hand clap: three quick noise bursts and a short tail.
+export function clap(seed) {
+  const n = noise(seed);
+  let lp = 0;
+  return (t) => {
+    const x = n();
+    lp += (x - lp) * 0.4;
+    const bursts = [0, 0.011, 0.022].reduce((v, o) => v + (t >= o ? Math.exp(-(t - o) * 180) : 0), 0);
+    return (x - lp) * (bursts * 0.6 + Math.exp(-t * 14) * 0.5);
+  };
+}
