@@ -427,8 +427,11 @@ export class Dancer {
   }
 
   // Draw the dancer with camera `cam` onto 2D context `g`, using `layer` to
-  // render the smooth body silhouette on the GPU.
-  draw(g, cam, t, colors, layer) {
+  // render the smooth body silhouette on the GPU. `look` holds the colors
+  // and the product: { figure, product, line: 'earbuds' | 'none',
+  // device: white image canvas or null, deviceSize: height in meters }.
+  draw(g, cam, t, look, layer) {
+    const colors = look;
     cam.at(t);
     this.simulate(t);
     const r = this.rig(t);
@@ -457,6 +460,7 @@ export class Dancer {
     const wires = [this.cable.pos, this.branch.pos];
     const budBehind = (q) => cam.depth(q) < cam.depth(f.headC) - 0.02;
     const drawWires = (hidden) => {
+      if (look.line === 'none') return;
       g.lineWidth = Math.max(2, cam.px(0.0042));
       for (const w of wires) for (const run of runs(w, hidden)) strokePath(g, run, true);
       for (const q of Object.values(r.buds)) {
@@ -501,7 +505,7 @@ export class Dancer {
     g.lineCap = 'round';
     g.lineJoin = 'round';
     drawWires(false);
-    drawDevice(g, cam, r.p, this.hand, r.palm);
+    drawDevice(g, cam, r.p, this.hand, r.palm, look.device, look.deviceSize ?? 0.092, look.deviceTilt ?? 1);
   }
 }
 
@@ -537,8 +541,10 @@ function holdUp(p, hand, weight) {
   return q;
 }
 
-// The device: a white pebble held along the fingers.
-function drawDevice(g, cam, p, hand, palm) {
+// The device, held along the forearm: the user's product as a white image,
+// or a white pebble when there is none. `size` is its height in meters;
+// `tilt` (0-1) is how far it follows the forearm away from upright.
+function drawDevice(g, cam, p, hand, palm, image, size, tilt) {
   const [cx, cy] = cam.project(palm);
   const [wx, wy] = cam.project(p[`${hand}humerus`]);
   const [fx, fy] = cam.project(p[`${hand}fingers`]);
@@ -549,12 +555,21 @@ function drawDevice(g, cam, p, hand, palm) {
   else [ux, uy] = [ux / l, uy / l];
   g.save();
   g.translate(cx, cy);
-  g.rotate(Math.atan2(uy, ux) - Math.PI / 2);
-  const w = cam.px(0.058);
-  const h = cam.px(0.092);
-  g.beginPath();
-  g.roundRect(-w / 2, -h / 2, w, h, cam.px(0.02));
-  g.fill();
+  // Rotate so the top of the device points along the forearm, eased
+  // toward upright by `tilt`.
+  let angle = Math.atan2(uy, ux) + Math.PI / 2;
+  angle = Math.atan2(Math.sin(angle), Math.cos(angle)) * tilt;
+  g.rotate(angle);
+  const h = cam.px(size);
+  if (image) {
+    const w = (h * image.width) / image.height;
+    g.drawImage(image, -w / 2, -h / 2, w, h);
+  } else {
+    const w = h * 0.63;
+    g.beginPath();
+    g.roundRect(-w / 2, -h / 2, w, h, h * 0.22);
+    g.fill();
+  }
   g.restore();
 }
 

@@ -8,7 +8,8 @@
 - **Best for:** products you wear, hold or listen with: earbuds, headphones,
   players, phones, wearables, bottles
 - **Not for:** large or stationary products such as furniture or appliances
-- **Demo:** [`films/silhouette-dancers`](../../films/silhouette-dancers)
+- **Kit:** [`kit/`](kit) renders this style from a brief; see the
+  [examples](../../examples) and the [skill](../../skills/make-ad/SKILL.md)
 
 ## The one-glance test
 
@@ -67,15 +68,24 @@ one hand. The white things are the only things that are not black.
 
 ## Inputs
 
-1. Product name and a tagline of at most six words.
-2. The device shape, or a photo to trace as a white shape.
-3. What the white line is: earbud wire (default), strap, cable or lace.
-4. Length: 15 or 30 seconds.
-5. Optional: a music file the user owns, and its BPM.
+These map to the brief (`adopus new` options in parentheses).
+
+1. Product name and a tagline of at most six words (`--name`, `--tagline`).
+2. The product as a transparent PNG or an SVG, drawn as a white shape, and
+   its height when held (`--product`, `--size`). Without an image the kit
+   draws a plain white pebble.
+3. The white line: a Y-shaped earbud wire or none (`--line earbuds|none`).
+4. Length and aspect: 15 or 30 seconds; 16:9, 9:16, 1:1 or 4:5
+   (`--length`, `--aspect`).
+5. Optional: a music file the user owns and its BPM (`--music`, `--bpm`).
+   Without one, the kit composes an original track to the cut plan.
 
 ## Shot list
 
-Default 15-second cut at 120 BPM (one bar = 2 s). This is the demo's list.
+The kit plans shots from the length and tempo: one shot per bar, cycling
+through dancers and moves (mirrored on repeats), then a build of two
+half-bar cuts and a closing leap. The default 15-second cut at 120 BPM (one
+bar = 2 s), as in the earbuds example:
 
 | Time | Color | Dancer | Move | Framing |
 |---|---|---|---|---|
@@ -102,7 +112,7 @@ end card. Cuts land exactly on the downbeat.
 
 ## Render notes
 
-- 1920×1080 at 30 fps.
+- 1920×1080 (or 1080×1920, 1080×1080, 1080×1350) at 30 fps.
 - **Motion:** use motion capture, not hand keyframes. The demo uses the CMU
   Graphics Lab Motion Capture Database, parsed from ASF/AMC with forward
   kinematics.

@@ -1,19 +1,18 @@
 {
   "name": "leo-adopus",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "50 legendary ads, remade in code — for your product.",
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "render": "node core/render.mjs",
-    "demo:silhouette": "node films/silhouette-dancers/music.mjs out/silhouette-dancers.wav && node core/render.mjs films/silhouette-dancers --audio out/silhouette-dancers.wav --out out/silhouette-dancers.mp4"
+    "adopus": "node core/cli.mjs",
+    "demo": "node core/cli.mjs render examples/adopus-earbuds"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
-  "dependencies": {
-    "@fontsource/inter": "^5.3.0",
-    "playwright-core": "^1.64.1"
+  "bin": {
+    "adopus": "core/cli.mjs"
   }
 }

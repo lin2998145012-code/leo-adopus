@@ -1,0 +1,15 @@
+{
+  "style": "silhouette-dancers",
+  "product": {
+    "name": "FLOW",
+    "tagline": "Drink. Dance. Repeat.",
+    "image": "bottle.svg",
+    "size": 0.22,
+    "line": "none"
+  },
+  "length": 30,
+  "aspect": "9:16",
+  "music": {
+    "bpm": 120
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "style": "silhouette-dancers",
+  "product": {
+    "name": "adopus",
+    "tagline": "Move like nobody’s listening.",
+    "line": "earbuds"
+  },
+  "length": 15,
+  "aspect": "16:9",
+  "music": {
+    "bpm": 120
+  },
+  "palette": [
+    "lime",
+    "pink",
+    "cyan",
+    "yellow",
+    "orange",
+    "pink",
+    "violet"
+  ]
+}

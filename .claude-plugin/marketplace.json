@@ -1,0 +1,14 @@
+{
+  "name": "leo-adopus",
+  "description": "Legendary ad styles, remade in code for your product.",
+  "owner": {
+    "name": "Leo"
+  },
+  "plugins": [
+    {
+      "name": "leo-adopus",
+      "source": "./",
+      "description": "Make a product ad video in the style of a legendary ad, rendered entirely in code."
+    }
+  ]
+}

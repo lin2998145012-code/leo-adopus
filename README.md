@@ -6,47 +6,98 @@
 
 [中文](README.zh-CN.md)
 
-> 🚧 Work in progress. The style library and the first demos are being built in
-> public. Star the repo to follow along.
+<p>
+  <img src="docs/demos/silhouette-dancers.gif" alt="Silhouette dancers, 16:9" width="640">
+  <img src="docs/demos/flow-bottle.gif" alt="Silhouette dancers, 9:16" width="200">
+</p>
 
-## First demo: silhouette dancers
+Two ads from one style, made from two short briefs: wired earbuds in 16:9,
+and a water bottle in 9:16 for Reels and TikTok. Real motion-capture dancers,
+a GPU silhouette shader, physics for hair, skirts and the white wire, and an
+original soundtrack composed in code.
+[Earbuds MP4](docs/demos/silhouette-dancers.mp4) ·
+[Bottle MP4](docs/demos/flow-bottle.mp4) ·
+[Style file](styles/silhouette-dancers/STYLE.md)
 
-![Silhouette dancers demo](docs/demos/silhouette-dancers.gif)
+> 🚧 1 of 50 styles renders today: [silhouette dancers](styles/silhouette-dancers/STYLE.md).
+> The rest are planned in the [style index](styles/README.md). Star the repo to
+> follow along.
 
-A 15-second spot for fictional earbuds, made entirely in code: real
-motion-capture dancers, a GPU silhouette shader, physics for hair, skirts and
-the white wire, and an original soundtrack synthesized in code.
-[Watch the MP4 with sound](docs/demos/silhouette-dancers.mp4) ·
-[Style file](styles/silhouette-dancers/STYLE.md) ·
-[Film source](films/silhouette-dancers)
+## Use it in Claude Code
 
-## What it is
+```text
+/plugin install leo-adopus --marketplace lin2998145012-code/leo-adopus
+```
 
-leo-adopus is a library of ad styles for coding agents such as Claude Code.
-Each style captures the techniques of one legendary ad — its framing, color,
-pacing, copy structure and signature move — so your agent can make an ad for
-**your** product that people recognize at first glance.
+Or, on older versions:
 
-- **Your product, their legendary technique.** You bring the product. The style
-  brings the grammar of an ad that changed advertising.
-- **Made in code, not a video model.** Films are written as HTML, CSS and
-  JavaScript, then rendered to MP4.
-- **50 styles, 9 families.** From whitespace print ads to chain reactions,
-  screen stories and tearjerkers. See the [style index](styles/README.md).
+```text
+/plugin marketplace add lin2998145012-code/leo-adopus
+/plugin install leo-adopus@leo-adopus
+```
+
+Then ask for an ad:
+
+```text
+Make a 15-second vertical silhouette-dancers ad for my energy drink ZING.
+The can is ./can.png. Tagline: "Feel the beat."
+```
+
+Claude checks your machine, asks for anything missing, shows you a
+storyboard, then renders the MP4. You can also run the skill directly with
+`/leo-adopus:make-ad`.
+
+## Use it from the command line
+
+You need Node 22+, ffmpeg and Google Chrome. There is nothing to
+`npm install`.
+
+```sh
+git clone https://github.com/lin2998145012-code/leo-adopus
+cd leo-adopus
+node core/cli.mjs doctor          # checks Node, ffmpeg and Chrome
+
+node core/cli.mjs new ../my-ad --name ZING --tagline "Feel the beat." \
+  --product ../can.png --size 0.12 --line none --aspect 9:16
+node core/cli.mjs preview ../my-ad   # one frame per shot → my-ad/out/storyboard.png
+node core/cli.mjs render ../my-ad    # → my-ad/out/my-ad.mp4
+```
+
+| Option | What it sets |
+|---|---|
+| `--name`, `--tagline` | End card text |
+| `--product` | Your product as a PNG with a transparent background, or an SVG. It is drawn as a white silhouette. |
+| `--size` | The product's height in meters when held (0.09 player, 0.12 can, 0.15 phone, 0.22 bottle) |
+| `--line` | `earbuds` for a Y-shaped earbud wire, or `none` |
+| `--length` | Seconds; cuts follow the beat |
+| `--aspect` | `16:9`, `9:16`, `1:1` or `4:5` |
+| `--music`, `--bpm` | Your own track and its tempo. Without it, an original track is composed. |
+| `--palette` | Background colors: `lime,pink,cyan,yellow,orange,violet` or hex values |
+
+Everything ends up in the film's `brief.json`, which you can edit by hand,
+down to every shot. The [skill file](skills/make-ad/SKILL.md) documents
+the full format.
 
 ## How it works
 
-Each style comes with a demo film: an HTML page that draws every frame, and a
-renderer (`core/render.mjs`) that captures the frames in headless Chromium
-and encodes them with ffmpeg. See the
-[demo film](films/silhouette-dancers/README.md) for commands.
+- A **style** is a [`STYLE.md`](styles/silhouette-dancers/STYLE.md) (what to
+  keep, what to replace, shot list, pitfalls) plus a **kit**: an HTML page
+  that draws any frame of a film from a brief.
+- `core/cli.mjs` opens the kit in headless Chrome over the DevTools protocol,
+  captures every frame and encodes it with ffmpeg, together with music
+  composed by the kit from the same shot plan.
+- The silhouette kit drives dancers with motion capture, draws their bodies
+  as a smooth union of capsules in a WebGL shader, and simulates hair,
+  cloth and the wire at 240 Hz.
 
-The plugin workflow is planned:
-
-1. Install the plugin into your coding agent.
-2. Describe your product and pick a style, for example:
-   `Make a 30-second silhouette-dancers ad for my coffee grinder.`
-3. The agent asks a few questions, shows a storyboard, then renders the film.
+```text
+.claude-plugin/        plugin and marketplace manifests
+skills/make-ad/        the skill Claude follows
+core/                  CLI, Chrome driver, synthesizer, motion-capture tools
+styles/<slug>/         STYLE.md, and kit/ when the style renders
+examples/              the briefs behind the demos
+assets/fonts/          Inter (SIL Open Font License)
+```
 
 ## Look-alike rules
 
@@ -61,7 +112,8 @@ technique, so that is what we keep:
 | Copy structure | Brand names, logos and products |
 | The signature move | Real people's likenesses |
 
-Each style file lists exactly what it keeps and what it replaces.
+Each style file lists exactly what it keeps and what it replaces. Use only
+product images, logos and music you own.
 
 ## Disclaimer
 
@@ -70,7 +122,11 @@ affiliated with, sponsored by or endorsed by any brand, agency or festival
 mentioned here. All trademarks belong to their owners. Everything in this
 repository — code, styles, music and demos — is original work.
 
-## License
+## Credits and license
 
-Code is released under the [MIT License](LICENSE). Demo films will be released
-under CC BY 4.0.
+Code is released under the [MIT License](LICENSE). Demo films are released
+under CC BY 4.0. The Inter font is under the [SIL Open Font License](assets/fonts/OFL.txt).
+
+Motion data: the data used in this project was obtained from
+[mocap.cs.cmu.edu](http://mocap.cs.cmu.edu). The database was created with
+funding from NSF EIA-0196217.
