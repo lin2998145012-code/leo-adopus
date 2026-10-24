@@ -193,7 +193,8 @@ async function render(dir, args) {
 async function newFilm(dir, args) {
   if (!dir) fail('usage: adopus new <dir> --style <slug> --name <product> [options]');
   const kits = styleKits().map((k) => k.slug);
-  const style = args.style ?? kits[0];
+  // Without --style, the first style in the README.
+  const style = args.style ?? (kits.includes('silhouette-dancers') ? 'silhouette-dancers' : kits[0]);
   if (!kits.includes(style)) fail(`style "${style}" has no kit yet. Ready: ${kits.join(', ')}`);
   if (!args.name) fail('--name <product name> is required');
   if (existsSync(join(dir, 'brief.json')) && !args.force) fail(`${dir}/brief.json exists. Pass --force to replace it.`);
