@@ -1,5 +1,5 @@
 ---
-description: Make a product ad video in the style of a legendary ad, rendered entirely in code (leo-adopus). Use when someone wants a commercial, promo, social ad or year-in-review video for their product or brand, or asks for an ad in a classic style such as the iPod-style silhouette dancers or Wrapped-style year-in-review cards.
+description: Make a product ad video in the style of a legendary ad, rendered entirely in code (leo-adopus). Use when someone wants a commercial, promo, social ad or year-in-review video for their product or brand, or asks for an ad in a classic style such as the iPod-style silhouette dancers, Wrapped-style year-in-review cards or a story told through searches.
 argument-hint: "[product name or description]"
 ---
 
@@ -25,6 +25,7 @@ request:
 |---|---|
 | A product shown off by dancers, music and energy; audio, wearables, drinks, anything held in the hand | `silhouette-dancers` |
 | A recap of a year, a launch or a milestone in numbers; apps, SaaS, shops, communities, creators | `year-in-review` |
+| A customer's story over time told through their searches; apps, software, courses, services | `search-box-story` |
 
 Then read `${CLAUDE_PLUGIN_ROOT}/styles/<slug>/STYLE.md`. Its Keep, Replace,
 Inputs, Brief and Pitfalls sections are the contract for the film.
@@ -43,9 +44,10 @@ anything the user already told you. Always cover:
 - **Aspect**: `16:9`, `9:16` (TikTok, Reels, Shorts), `1:1` or `4:5`.
 - **Music**: none (an original track is composed to match the cuts), or a
   file the user owns and its BPM.
-- Style-specific content, such as a tagline for `silhouette-dancers`, or the
-  real numbers and top-5 lists for `year-in-review`. Write the copy for them
-  when they want; never invent numbers.
+- Style-specific content, such as a tagline for `silhouette-dancers`, the
+  real numbers and top-5 lists for `year-in-review`, or the customer's story
+  for `search-box-story`. Write the copy and the searches for them when they
+  want; never invent numbers.
 
 ## 4. Create the film
 
@@ -56,7 +58,8 @@ adopus new ./adopus-films/<slug> --style <style> --name "<name>" [options]
 Options per style are in its Inputs section. Files passed in (images, logo,
 music) are copied into the film folder. Then edit `brief.json` to match the
 style's Brief section: for `year-in-review`, replace the skeleton cards with
-the user's real numbers and copy.
+the user's real numbers and copy; for `search-box-story`, write the searches
+that tell the story.
 
 ## 5. Preview, look, fix
 

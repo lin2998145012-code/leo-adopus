@@ -11,6 +11,9 @@
   <img src="docs/demos/flow-bottle.gif" alt="Silhouette dancers, 9:16" width="175">
   <img src="docs/demos/brewly-year.gif" alt="Year-in-review cards, 9:16" width="175">
 </p>
+<p>
+  <img src="docs/demos/inkwell-search.gif" alt="Search box story, 16:9" width="560">
+</p>
 
 Every film above was made from a short brief, entirely in code, with an
 original soundtrack composed in code.
@@ -19,8 +22,9 @@ original soundtrack composed in code.
 |---|---|---|
 | [Silhouette dancers](styles/silhouette-dancers/STYLE.md) | Apple iPod "Silhouettes" (2003) | [earbuds, 16:9](docs/demos/silhouette-dancers.mp4) · [bottle, 9:16](docs/demos/flow-bottle.mp4) |
 | [Year-in-review cards](styles/year-in-review/STYLE.md) | Spotify Wrapped (2016–) | [coffee app, 9:16](docs/demos/brewly-year.mp4) |
+| [Search box story](styles/search-box-story/STYLE.md) | Google "Parisian Love" (2009) | [writing app, 16:9](docs/demos/inkwell-search.mp4) |
 
-> 🚧 2 of 50 styles render today. The rest are planned in the
+> 🚧 3 of 50 styles render today. The rest are planned in the
 > [style index](styles/README.md). Star the repo to follow along.
 
 ## Use it in Claude Code
@@ -46,6 +50,11 @@ The can is ./can.png. Tagline: "Feel the beat."
 ```text
 Make a year-in-review video for my app Inkwell: 48,200 new writers,
 1.2M notes, top features Search, Sync, Templates, Tags and Share.
+```
+
+```text
+Make a search-box-story ad for Inkwell, a notes app for writers: someone
+who dreams of a novel finds Inkwell and ends up writing the dedication.
 ```
 
 Claude checks your machine, asks for anything missing, shows you a
@@ -104,6 +113,9 @@ full format.
   cloth and the wire at 240 Hz.
 - The year-in-review kit draws story cards with canvas 2D: counting
   numbers, number walls, top-5 lists, popping shapes and iridescent ribbons.
+- The search-box-story kit draws a search page and types into it with a
+  human rhythm, with autocomplete, special results, a pointer and a camera,
+  over a piano score and keyboard clicks.
 
 ```text
 .claude-plugin/        plugin and marketplace manifests
@@ -111,7 +123,7 @@ skills/make-ad/        the skill Claude follows
 core/                  CLI, Chrome driver, synthesizer, motion-capture tools
 styles/<slug>/         STYLE.md, and kit/ when the style renders
 examples/              the briefs behind the demos
-assets/fonts/          Inter and DM Sans (SIL Open Font License)
+assets/fonts/          Inter, DM Sans, Arimo, Libre Baskerville (SIL OFL)
 ```
 
 ## Look-alike rules
@@ -140,9 +152,10 @@ repository — code, styles, music and demos — is original work.
 ## Credits and license
 
 Code is released under the [MIT License](LICENSE). Demo films are released
-under CC BY 4.0. The [Inter](assets/fonts/inter/OFL.txt) and
-[DM Sans](assets/fonts/dm-sans/OFL.txt) fonts are under the SIL Open Font
-License.
+under CC BY 4.0. The [Inter](assets/fonts/inter/OFL.txt),
+[DM Sans](assets/fonts/dm-sans/OFL.txt), [Arimo](assets/fonts/arimo/OFL.txt)
+and [Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt) fonts are
+under the SIL Open Font License.
 
 Motion data: the data used in this project was obtained from
 [mocap.cs.cmu.edu](http://mocap.cs.cmu.edu). The database was created with

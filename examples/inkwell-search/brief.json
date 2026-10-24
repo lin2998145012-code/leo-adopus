@@ -1,0 +1,64 @@
+{
+  "style": "search-box-story",
+  "product": { "name": "Inkwell", "url": "inkwell.so" },
+  "aspect": "16:9",
+  "music": { "bpm": 100 },
+  "steps": [
+    {
+      "query": "how to start writing a novel",
+      "suggest": ["how to start writing a novel", "how to start writing a novel for beginners", "how to start writing a novel when you have no time", "how to start writing a book"],
+      "results": [
+        { "title": "How to Start Writing a Novel: 12 Steps", "url": "www.writersdesk.com/start-a-novel", "text": "The hardest part of writing a novel is the first page. Here is how to start writing anyway, one scene at a time." },
+        { "title": "I finally started my novel at 34. Here's how.", "url": "www.forum.net/t/start-writing-a-novel", "text": "Stopped waiting for the perfect idea and started writing for twenty minutes a day before work." }
+      ],
+      "click": 1
+    },
+    {
+      "query": "best notes app for writers",
+      "results": [
+        { "title": "The 7 best notes apps for writers in 2026", "url": "www.appreview.io/notes-apps-writers", "text": "We tested the best notes apps for writers: drafts, outlines and research, all in one place." }
+      ],
+      "answer": { "type": "site", "title": "Inkwell — notes that grow into books", "url": "inkwell.so", "text": "Capture ideas, outline chapters and write your draft in one calm place.", "links": ["Download", "For novelists", "Pricing", "Stories"] }
+    },
+    {
+      "query": "translate il était une fois",
+      "answer": { "type": "translate", "fromLang": "French", "toLang": "English", "from": "il était une fois", "to": "once upon a time" },
+      "results": [
+        { "title": "Il était une fois - Wiktionary", "url": "en.wiktionary.org/wiki/il_était_une_fois", "text": "French phrase used to begin fairy tales: once upon a time." }
+      ]
+    },
+    {
+      "query": "how to beat writers block",
+      "pause": { "at": 18, "seconds": 0.9 },
+      "results": [
+        { "title": "How to Beat Writer's Block: 9 Tricks That Work", "url": "www.writersdesk.com/writers-block", "text": "Change the scene, lower the stakes, and write the worst version first. Then fix it tomorrow." }
+      ],
+      "click": 0
+    },
+    {
+      "query": "how long is a novel",
+      "answer": { "type": "card", "title": "80,000 – 100,000 words", "text": "Most adult fiction runs between 80,000 and 100,000 words. Debut novels often land near 90,000." },
+      "results": [
+        { "title": "How Long Is a Novel? Word Counts by Genre", "url": "www.writersdesk.com/novel-length", "text": "Word counts for novels, novellas and short stories, genre by genre." }
+      ],
+      "sfx": "chime"
+    },
+    {
+      "query": "literary agents near me",
+      "answer": { "type": "map", "title": "Literary agents near Brooklyn, NY", "places": ["Harbor Lane Literary", "Fifth Street Agency", "Northlight Books"] },
+      "results": [
+        { "title": "How to Find a Literary Agent (and Get a Yes)", "url": "www.querycraft.com/find-an-agent", "text": "A step-by-step guide to querying literary agents, from the first line of your letter to the call." }
+      ]
+    },
+    {
+      "query": "how to write a book dedication",
+      "speed": 0.7,
+      "results": [
+        { "title": "How to Write a Book Dedication, With 50 Examples", "url": "www.writersdesk.com/dedication", "text": "To my mother, who read every draft. A book dedication can be one line. Here is how to write yours." }
+      ],
+      "click": 0,
+      "sfx": "bells"
+    }
+  ],
+  "end": { "tagline": "Write on." }
+}

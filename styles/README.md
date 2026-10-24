@@ -52,7 +52,7 @@
 
 | # | Slug | Style | Inspired by | Difficulty | Status |
 |---|---|---|---|---|---|
-| 21 | `search-box-story` | Search box story | Google "Parisian Love" (2009) | ★★★ | 📝 |
+| 21 | [`search-box-story`](search-box-story/STYLE.md) | Search box story | Google "Parisian Love" (2009) | ★★★ | ✅ |
 | 22 | `screen-diary` | Screen diary | Google Chrome "Dear Sophie" (2011) | ★★★ | 📝 |
 | 23 | [`year-in-review`](year-in-review/STYLE.md) | Year-in-review cards | Spotify Wrapped (2016–) | ★★★ | ✅ |
 | 24 | `comment-takeover` | Comment takeover | NetEase Cloud Music "Comment Train" (2017) | ★★★ | 📝 |
