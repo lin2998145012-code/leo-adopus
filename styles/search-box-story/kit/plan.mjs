@@ -66,10 +66,10 @@ export function plan(brief) {
     s.clickIndex = hasClick ? Number(step.click ?? 0) : null;
     let end = s.loaded + 1.6;
     if (s.clickIndex !== null) {
-      s.hover = s.loaded + 1.0;
-      s.click = s.hover + 0.55;
-      sounds.push({ t: t + s.click, type: 'click' });
-      end = s.click + 0.9;
+      s.hoverAt = s.loaded + 1.0;
+      s.clickAt = s.hoverAt + 0.55;
+      sounds.push({ t: t + s.clickAt, type: 'click' });
+      end = s.clickAt + 0.9;
     }
     end += step.hold ?? 0;
     // Steps last a whole number of half bars, so cuts fall on the beat.
@@ -88,7 +88,7 @@ export function plan(brief) {
   const keyTimes = [
     ...steps.flatMap((s) => [
       +(s.start + (s.keys[Math.floor(s.keys.length * 0.7)] ?? s.enter)).toFixed(2),
-      +(s.start + (s.click ?? s.loaded + 1.2) - 0.1).toFixed(2),
+      +(s.start + (s.clickAt ?? s.loaded + 1.2) - 0.1).toFixed(2),
     ]),
     +(endCard.t + endCard.d * 0.7).toFixed(2),
   ];

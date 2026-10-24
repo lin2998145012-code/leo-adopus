@@ -569,7 +569,7 @@ async function load() {
     else {
       const rc = resultsCam();
       cam = blend(tc, rc, smooth((tl - s.loaded) / 0.7));
-      if (target && s.hover) cam = blend(cam, focusCam(target), smooth((tl - (s.hover - 0.5)) / 0.8));
+      if (target && s.hoverAt) cam = blend(cam, focusCam(target), smooth((tl - (s.hoverAt - 0.5)) / 0.8));
       else if (s.answer && s.answer.type !== 'didyoumean') cam = blend(cam, focusCam(blocks.find((b) => b.kind === s.answer.type)), smooth((tl - s.loaded - 0.6) / 0.8));
     }
     // Pointer: rests below the box, travels to the target, clicks.
@@ -578,19 +578,19 @@ async function load() {
     let py = rest.y;
     let hover = null;
     let clicked = null;
-    if (target && s.hover && tl >= s.loaded) {
+    if (target && s.hoverAt && tl >= s.loaded) {
       const tx = L.colX + 40;
       const ty = target.y + 12;
-      const k = smooth((tl - s.loaded - 0.25) / (s.hover - s.loaded - 0.25));
+      const k = smooth((tl - s.loaded - 0.25) / (s.hoverAt - s.loaded - 0.25));
       px = lerp(rest.x, tx, k);
       py = lerp(rest.y, ty, k) - Math.sin(k * Math.PI) * 40;
-      if (tl >= s.hover - 0.05) hover = target;
-      if (tl >= s.click) clicked = target;
+      if (tl >= s.hoverAt - 0.05) hover = target;
+      if (tl >= s.clickAt) clicked = target;
     }
     return {
       page, step: shownStep, blocks: shownBlocks, text, selected, caret, dropdown: drop,
       suggest: s.suggest ?? autoSuggest(s.query), showResults, cam, px, py, hover, clicked,
-      pressed: s.click && tl >= s.click && tl < s.click + 0.12,
+      pressed: s.clickAt && tl >= s.clickAt && tl < s.clickAt + 0.12,
     };
   };
 
