@@ -14,5 +14,6 @@ node core/cli.mjs render examples/<name>
 | [`brewly-year`](brewly-year/brief.json) | year-in-review | a fictional coffee app's year, seven cards | 30 s, 9:16 |
 | [`inkwell-search`](inkwell-search/brief.json) | search-box-story | a fictional writing app, from first page to dedication | 59 s, 16:9 |
 | [`orrin-speaker`](orrin-speaker/brief.json) | chain-reaction | a fictional speaker from `speaker.png`, five links | 34 s, 16:9 |
+| [`pip-kettle`](pip-kettle/brief.json) | whitespace-humble | a fictional two-cup kettle, "Two cups." | 27 s, 4:5 |
 
 The rendered films are in [`docs/demos`](../docs/demos).

@@ -12,7 +12,7 @@
 
 | # | Slug | Style | Inspired by | Difficulty | Status |
 |---|---|---|---|---|---|
-| 1 | `whitespace-humble` | Whitespace self-deprecation | Volkswagen "Think Small" (1959) | ★★★ | 📝 |
+| 1 | [`whitespace-humble`](whitespace-humble/STYLE.md) | Whitespace self-deprecation | Volkswagen "Think Small" (1959) | ★★★ | ✅ |
 | 2 | `proud-number-two` | Proud number two | Avis "We Try Harder" (1962) | ★★★ | 📝 |
 | 3 | `red-poster-wit` | Red poster wit | The Economist red posters (1988–) | ★★★ | 📝 |
 | 4 | `shape-everywhere` | Shape everywhere | Absolut Vodka bottle series (1980s–) | ★★★ | 📝 |

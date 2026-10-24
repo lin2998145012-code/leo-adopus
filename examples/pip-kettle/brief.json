@@ -1,0 +1,15 @@
+{
+  "style": "whitespace-humble",
+  "product": { "name": "Pip", "image": "kettle.png", "scale": 0.8 },
+  "aspect": "4:5",
+  "music": { "file": null, "bpm": 112 },
+  "headline": "Two cups.",
+  "body": [
+    "Pip is a small kettle. It holds two cups of water and not a drop more.",
+    "People ask us to make a bigger one. We keep saying no.",
+    "A small kettle boils in ninety seconds. It fits on the shelf between the tea and the honey. It doesn't heat the four cups you were never going to drink, so it uses less power than you would think.",
+    "And on the mornings when two cups isn't enough, you can always make two more. It only takes ninety seconds."
+  ],
+  "signoff": "Small is the point.",
+  "legal": "© 2026 Pip Kitchen Co."
+}

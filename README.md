@@ -14,6 +14,7 @@
 <p>
   <img src="docs/demos/inkwell-search.gif" alt="Search box story, 16:9" width="560">
   <img src="docs/demos/orrin-speaker.gif" alt="Parts chain reaction, 16:9" width="560">
+  <img src="docs/demos/pip-kettle.gif" alt="Whitespace self-deprecation, 4:5" width="252">
 </p>
 
 Every film above was made from a short brief, entirely in code, with an
@@ -25,8 +26,9 @@ original soundtrack composed in code.
 | [Year-in-review cards](styles/year-in-review/STYLE.md) | Spotify Wrapped (2016–) | [coffee app, 9:16](docs/demos/brewly-year.mp4) |
 | [Search box story](styles/search-box-story/STYLE.md) | Google "Parisian Love" (2009) | [writing app, 16:9](docs/demos/inkwell-search.mp4) |
 | [Parts chain reaction](styles/chain-reaction/STYLE.md) | Honda "Cog" (2003) | [speaker, 16:9](docs/demos/orrin-speaker.mp4) |
+| [Whitespace self-deprecation](styles/whitespace-humble/STYLE.md) | Volkswagen "Think Small" (1959) | [kettle, 4:5](docs/demos/pip-kettle.mp4) · [poster](docs/demos/pip-kettle-poster.jpg) |
 
-> 🚧 4 of 50 styles render today. The rest are planned in the
+> 🚧 5 of 50 styles render today. The rest are planned in the
 > [style index](styles/README.md). Star the repo to follow along.
 
 ## Use it in Claude Code
@@ -62,6 +64,11 @@ who dreams of a novel finds Inkwell and ends up writing the dedication.
 ```text
 Make a chain-reaction ad for my speaker Orrin (./speaker.png, 36 cm tall),
 tagline "Every part, in tune."
+```
+
+```text
+Make a Think-Small-style print ad and video for my kettle Pip (./kettle.png).
+It only holds two cups; make that the point.
 ```
 
 Claude checks your machine, asks for anything missing, shows you a
@@ -110,6 +117,11 @@ node core/cli.mjs new ../my-chain --style chain-reaction --name Orrin \
   --product ../speaker.png --size 0.36 --tagline "Every part, in tune."
 ```
 
+```text
+Make a Think-Small-style print ad and video for my kettle Pip (./kettle.png).
+It only holds two cups; make that the point.
+```
+
 Everything ends up in the film's `brief.json`, which you can edit by hand,
 down to every shot or card. Each style file has a Brief section with the
 full format.
@@ -133,6 +145,9 @@ full format.
 - The chain-reaction kit builds a room and machined parts in 3D with
   three.js, simulates every roll, fall, bounce and swing, follows them with
   one unbroken dolly shot, and turns each collision into sound.
+- The whitespace-humble kit sets a black-and-white magazine page — a small
+  product in a vast gray photograph, a headline, three columns of copy —
+  and films it being read, ending on the finished page.
 
 ```text
 .claude-plugin/        plugin and marketplace manifests
@@ -140,7 +155,7 @@ skills/make-ad/        the skill Claude follows
 core/                  CLI, Chrome driver, synthesizer, motion-capture tools
 styles/<slug>/         STYLE.md, and kit/ when the style renders
 examples/              the briefs behind the demos
-assets/fonts/          Inter, DM Sans, Arimo, Libre Baskerville (SIL OFL)
+assets/fonts/          Inter, DM Sans, Arimo, Libre Baskerville, Jost (SIL OFL)
 assets/vendor/three/   three.js (MIT), used by the 3D kits
 ```
 
@@ -171,8 +186,9 @@ repository — code, styles, music and demos — is original work.
 
 Code is released under the [MIT License](LICENSE). Demo films are released
 under CC BY 4.0. The [Inter](assets/fonts/inter/OFL.txt),
-[DM Sans](assets/fonts/dm-sans/OFL.txt), [Arimo](assets/fonts/arimo/OFL.txt)
-and [Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt) fonts are
+[DM Sans](assets/fonts/dm-sans/OFL.txt), [Arimo](assets/fonts/arimo/OFL.txt),
+[Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt) and
+[Jost](assets/fonts/jost/OFL.txt) fonts are
 under the SIL Open Font License. [three.js](assets/vendor/three/LICENSE) is
 under the MIT License.
 
