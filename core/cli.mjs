@@ -109,9 +109,11 @@ async function openFilm(dir) {
   await page.goto(url);
   await page.waitFor('!!(window.film && window.film.ready)');
   await page.evaluate('window.film.ready');
-  const meta = await page.evaluate('({ width: film.width, height: film.height, fps: film.fps, duration: film.duration, keyTimes: film.keyTimes })');
-  const grab = async (t) => {
-    const data = await page.evaluate(`(film.render(${t}), film.canvas.toDataURL('image/png'))`);
+  const meta = await page.evaluate('({ width: film.width, height: film.height, fps: film.fps, duration: film.duration, keyTimes: film.keyTimes, format: film.format })');
+  // Kits may ask for JPEG frames for video, which encode much faster than
+  // PNG; stills stay PNG.
+  const grab = async (t, format = 'image/png') => {
+    const data = await page.evaluate(`(film.render(${t}), film.canvas.toDataURL('${format}', 0.95))`);
     return Buffer.from(data.split(',')[1], 'base64');
   };
   const close = async () => {
@@ -174,7 +176,7 @@ async function render(dir, args) {
       ...audioOut, '-movflags', '+faststart', out,
     ], async (stdin) => {
       for (let f = 0; f < total; f++) {
-        const buf = await film.grab(f / meta.fps);
+        const buf = await film.grab(f / meta.fps, meta.format);
         if (!stdin.write(buf)) await new Promise((ok) => stdin.once('drain', ok));
         if (f % meta.fps === 0) process.stdout.write(`\rRendering ${Math.round((f / total) * 100)}%`);
       }
@@ -229,7 +231,7 @@ async function doctor() {
       const page = await browser.newPage(64, 64);
       const gl = await page.evaluate("!!document.createElement('canvas').getContext('webgl2')");
       await browser.close();
-      check('WebGL 2 in headless Chrome', gl, 'update Chrome; WebGL 2 is needed for the silhouette shader');
+      check('WebGL 2 in headless Chrome', gl, 'update Chrome; WebGL 2 is needed for the silhouette and 3D kits');
     } catch (e) {
       check('headless Chrome starts', false, e.message.split('\n')[0]);
     }

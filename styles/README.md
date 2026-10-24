@@ -35,7 +35,7 @@
 
 | # | Slug | Style | Inspired by | Difficulty | Status |
 |---|---|---|---|---|---|
-| 14 | `chain-reaction` | Parts chain reaction | Honda "Cog" (2003) | ★★★ | 📝 |
+| 14 | [`chain-reaction`](chain-reaction/STYLE.md) | Parts chain reaction | Honda "Cog" (2003) | ★★★ | ✅ |
 | 15 | `one-take-scene-shift` | One-take scene shift | Old Spice "The Man Your Man Could Smell Like" (2010) | ★★ | 📝 |
 | 16 | `impossible-balance` | Impossible balance | Volvo Trucks "Epic Split" (2013) | ★ | 📝 |
 | 17 | `founder-rant` | Founder one-take rant | Dollar Shave Club (2012) | ★ | 📝 |

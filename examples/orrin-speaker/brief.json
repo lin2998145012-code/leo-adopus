@@ -1,0 +1,8 @@
+{
+  "style": "chain-reaction",
+  "product": { "name": "Orrin", "image": "speaker.png", "size": 0.36 },
+  "aspect": "16:9",
+  "accent": "#c8261e",
+  "links": ["dominoes", "seesaw", "gearbox", "uphill", "pendulum"],
+  "end": { "tagline": "Every part, in tune." }
+}

@@ -13,6 +13,7 @@
 </p>
 <p>
   <img src="docs/demos/inkwell-search.gif" alt="搜索框里的故事，16:9" width="560">
+  <img src="docs/demos/orrin-speaker.gif" alt="零件连锁反应，16:9" width="560">
 </p>
 
 上面每支片子都只用一份简短的 brief、完全由代码生成，配乐也由代码原创合成。
@@ -22,8 +23,9 @@
 | [剪影舞者](styles/silhouette-dancers/STYLE.md) | Apple iPod "Silhouettes"（2003） | [耳机，16:9](docs/demos/silhouette-dancers.mp4) · [水瓶，9:16](docs/demos/flow-bottle.mp4) |
 | [年度回顾卡片](styles/year-in-review/STYLE.md) | Spotify Wrapped（2016–） | [咖啡 App，9:16](docs/demos/brewly-year.mp4) |
 | [搜索框里的故事](styles/search-box-story/STYLE.md) | Google "Parisian Love"（2009） | [写作 App，16:9](docs/demos/inkwell-search.mp4) |
+| [零件连锁反应](styles/chain-reaction/STYLE.md) | Honda "Cog"（2003） | [音箱，16:9](docs/demos/orrin-speaker.mp4) |
 
-> 🚧 目前 50 个风格中有 3 个可以渲染，其余见[风格索引](styles/README.md)。点个 Star 关注进展。
+> 🚧 目前 50 个风格中有 4 个可以渲染，其余见[风格索引](styles/README.md)。点个 Star 关注进展。
 
 ## 在 Claude Code 里使用
 
@@ -50,6 +52,10 @@
 
 ```text
 给写作笔记 App Inkwell 做一支"搜索框里的故事"广告：一个想写小说的人发现了 Inkwell，最后写下了书的献词。
+```
+
+```text
+给我的音箱 Orrin 做一支零件连锁反应广告，产品图是 ./speaker.png，高 36 厘米，口号 "Every part, in tune."
 ```
 
 Claude 会先检查环境，问清缺少的信息，给你看分镜，再渲染出 MP4。也可以直接运行 `/leo-adopus:make-ad`。
@@ -88,6 +94,13 @@ node core/cli.mjs new ../my-year --style year-in-review --name Inkwell \
 # 在 my-year/brief.json 里填好每张卡片的数据和文案，再预览、渲染
 ```
 
+零件连锁反应这样开始：
+
+```sh
+node core/cli.mjs new ../my-chain --style chain-reaction --name Orrin \
+  --product ../speaker.png --size 0.36 --tagline "Every part, in tune."
+```
+
 所有设置都写在影片文件夹的 `brief.json` 里，可以手动修改，细到每一个镜头或卡片。每个风格文件的 Brief 一节有完整格式。
 
 ## 工作方式
@@ -97,6 +110,7 @@ node core/cli.mjs new ../my-year --style year-in-review --name Inkwell \
 - 剪影 kit 用动作捕捉驱动舞者，用 WebGL 着色器把身体画成平滑融合的胶囊体，并以 240 Hz 模拟头发、布料和耳机线。
 - 年度回顾 kit 用 canvas 2D 绘制故事卡片：数字滚动、数字墙、Top 5 榜单、弹跳图形和炫彩飘带。
 - 搜索框故事 kit 绘制一个搜索页，用真人般的节奏打字，配合自动补全、特殊结果、鼠标指针和镜头运动，底下是钢琴配乐和键盘声。
+- 连锁反应 kit 用 three.js 搭出三维房间和机械零件，模拟每一次滚动、下落、弹跳和摆动，用一个不间断的跟拍长镜头跟着它们，并把每一次碰撞变成声音。
 
 ## "像"的规则
 
@@ -118,6 +132,6 @@ node core/cli.mjs new ../my-year --style year-in-review --name Inkwell \
 
 ## 致谢与许可
 
-代码采用 [MIT 许可](LICENSE)，demo 影片以 CC BY 4.0 发布，[Inter](assets/fonts/inter/OFL.txt)、[DM Sans](assets/fonts/dm-sans/OFL.txt)、[Arimo](assets/fonts/arimo/OFL.txt) 和 [Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt) 字体采用 SIL Open Font License。
+代码采用 [MIT 许可](LICENSE)，demo 影片以 CC BY 4.0 发布，[Inter](assets/fonts/inter/OFL.txt)、[DM Sans](assets/fonts/dm-sans/OFL.txt)、[Arimo](assets/fonts/arimo/OFL.txt) 和 [Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt) 字体采用 SIL Open Font License，[three.js](assets/vendor/three/LICENSE) 采用 MIT 许可。
 
 动作数据来自 [mocap.cs.cmu.edu](http://mocap.cs.cmu.edu)，该数据库由 NSF EIA-0196217 资助创建。

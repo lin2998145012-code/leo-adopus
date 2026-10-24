@@ -1,5 +1,5 @@
 ---
-description: Make a product ad video in the style of a legendary ad, rendered entirely in code (leo-adopus). Use when someone wants a commercial, promo, social ad or year-in-review video for their product or brand, or asks for an ad in a classic style such as the iPod-style silhouette dancers, Wrapped-style year-in-review cards or a story told through searches.
+description: Make a product ad video in the style of a legendary ad, rendered entirely in code (leo-adopus). Use when someone wants a commercial, promo, social ad or year-in-review video for their product or brand, or asks for an ad in a classic style such as the iPod-style silhouette dancers, Wrapped-style year-in-review cards, a story told through searches or a one-take chain reaction of parts.
 argument-hint: "[product name or description]"
 ---
 
@@ -26,6 +26,7 @@ request:
 | A product shown off by dancers, music and energy; audio, wearables, drinks, anything held in the hand | `silhouette-dancers` |
 | A recap of a year, a launch or a milestone in numbers; apps, SaaS, shops, communities, creators | `year-in-review` |
 | A customer's story over time told through their searches; apps, software, courses, services | `search-box-story` |
+| One unbroken shot of machined parts setting each other off until the product rolls into place; engineered products, hardware, appliances, tools | `chain-reaction` |
 
 Then read `${CLAUDE_PLUGIN_ROOT}/styles/<slug>/STYLE.md`. Its Keep, Replace,
 Inputs, Brief and Pitfalls sections are the contract for the film.
@@ -45,8 +46,9 @@ anything the user already told you. Always cover:
 - **Music**: none (an original track is composed to match the cuts), or a
   file the user owns and its BPM.
 - Style-specific content, such as a tagline for `silhouette-dancers`, the
-  real numbers and top-5 lists for `year-in-review`, or the customer's story
-  for `search-box-story`. Write the copy and the searches for them when they
+  real numbers and top-5 lists for `year-in-review`, the customer's story
+  for `search-box-story`, or the product's real height and the order of the
+  links for `chain-reaction`. Write the copy and the searches for them when they
   want; never invent numbers.
 
 ## 4. Create the film
@@ -77,8 +79,9 @@ storyboard before the final render.
 
 Run `adopus render <dir>`. It composes the music when none is given and
 writes `<dir>/out/<folder name>.mp4` (30 fps, H.264 and AAC). Rendering takes
-about 6–8 seconds per second of film, so start it in the background when
-your tools allow and tell the user where the file is.
+about 6–8 seconds per second of film (`chain-reaction` renders in 3D and can
+take 20–30 seconds per second of film without a GPU), so start it in the
+background when your tools allow and tell the user where the file is.
 
 ## Rules
 
