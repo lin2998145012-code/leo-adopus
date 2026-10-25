@@ -16,6 +16,7 @@
   <img src="docs/demos/orrin-speaker.gif" alt="Parts chain reaction, 16:9" width="560">
   <img src="docs/demos/pip-kettle.gif" alt="Whitespace self-deprecation, 4:5" width="252">
   <img src="docs/demos/tessera-posters.gif" alt="Red poster wit, 16:9" width="560">
+  <img src="docs/demos/orrin-cascade.gif" alt="Ball cascade, 16:9" width="560">
 </p>
 
 Every film above was made from a short brief, entirely in code, with an
@@ -29,8 +30,9 @@ original soundtrack composed in code.
 | [Parts chain reaction](styles/chain-reaction/STYLE.md) | Honda "Cog" (2003) | [speaker, 16:9](docs/demos/orrin-speaker.mp4) |
 | [Whitespace self-deprecation](styles/whitespace-humble/STYLE.md) | Volkswagen "Think Small" (1959) | [kettle, 4:5](docs/demos/pip-kettle.mp4) · [poster](docs/demos/pip-kettle-poster.jpg) |
 | [Red poster wit](styles/red-poster-wit/STYLE.md) | The Economist red posters (1988–) | [language app, 16:9](docs/demos/tessera-posters.mp4) |
+| [Ball cascade](styles/ball-cascade/STYLE.md) | Sony Bravia "Balls" (2005) | [speaker, 16:9](docs/demos/orrin-cascade.mp4) |
 
-> 🚧 6 of 50 styles render today. The rest are planned in the
+> 🚧 7 of 50 styles render today. The rest are planned in the
 > [style index](styles/README.md). Star the repo to follow along.
 
 ## Use it in Claude Code
@@ -163,6 +165,9 @@ full format.
 - The red-poster-wit kit sets one line of white serif on red at the largest
   size that fits, in even lines, and cuts a run of posters on the beat,
   each punchline landing a beat after its setup.
+- The ball-cascade kit builds a steep street of row houses in 3D and pours
+  thousands of simulated bouncy balls down it in slow motion, over six
+  shots that end on the product.
 
 ```text
 .claude-plugin/        plugin and marketplace manifests

@@ -1,5 +1,5 @@
 ---
-description: Make a product ad video in the style of a legendary ad, rendered entirely in code (leo-adopus). Use when someone wants a commercial, promo, social ad or year-in-review video for their product or brand, or asks for an ad in a classic style such as the iPod-style silhouette dancers, Wrapped-style year-in-review cards, a story told through searches a one-take chain reaction of parts, a Think-Small-style black-and-white print ad, or witty white-on-red posters.
+description: Make a product ad video in the style of a legendary ad, rendered entirely in code (leo-adopus). Use when someone wants a commercial, promo, social ad or year-in-review video for their product or brand, or asks for an ad in a classic style such as the iPod-style silhouette dancers, Wrapped-style year-in-review cards, a story told through searches a one-take chain reaction of parts, a Think-Small-style black-and-white print ad, witty white-on-red posters, or bouncy balls pouring down a hill.
 argument-hint: "[product name or description]"
 ---
 
@@ -29,6 +29,7 @@ request:
 | One unbroken shot of machined parts setting each other off until the product rolls into place; engineered products, hardware, appliances, tools | `chain-reaction` |
 | An honest, self-deprecating print ad (and a video of it being read): a small product in a vast gray photo, a short headline, three columns of copy; products whose flaw is the point | `whitespace-humble` |
 | One witty line per poster, white serif on red, the brand signed small in the corner; brands with clever customers: publications, software, finance, education | `red-poster-wit` |
+| Thousands of bright bouncy balls pouring down a sunny hill street in slow motion, ending on the product; anything sold on color or joy | `ball-cascade` |
 
 Then read `${CLAUDE_PLUGIN_ROOT}/styles/<slug>/STYLE.md`. Its Keep, Replace,
 Inputs, Brief and Pitfalls sections are the contract for the film.
@@ -83,8 +84,8 @@ storyboard before the final render.
 
 Run `adopus render <dir>`. It composes the music when none is given and
 writes `<dir>/out/<folder name>.mp4` (30 fps, H.264 and AAC). Rendering takes
-about 6–8 seconds per second of film (`chain-reaction` renders in 3D and can
-take 20–30 seconds per second of film without a GPU), so start it in the
+about 6–8 seconds per second of film (`chain-reaction` and `ball-cascade` render
+in 3D and can take 20–60 seconds per second of film without a GPU), so start it in the
 background when your tools allow and tell the user where the file is.
 
 ## Rules

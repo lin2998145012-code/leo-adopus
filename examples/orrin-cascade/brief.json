@@ -1,0 +1,8 @@
+{
+  "style": "ball-cascade",
+  "product": { "name": "Orrin", "image": "speaker.png", "size": 0.9 },
+  "aspect": "16:9",
+  "music": { "file": null, "bpm": 92 },
+  "shots": ["wide", "low", "detail", "downhill", "close", "product"],
+  "end": { "tagline": "Every colour, out loud." }
+}

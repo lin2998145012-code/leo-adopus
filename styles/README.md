@@ -25,7 +25,7 @@
 
 | # | Slug | Style | Inspired by | Difficulty | Status |
 |---|---|---|---|---|---|
-| 9 | `ball-cascade` | Ball cascade | Sony Bravia "Balls" (2005) | ★★★ | 📝 |
+| 9 | [`ball-cascade`](ball-cascade/STYLE.md) | Ball cascade | Sony Bravia "Balls" (2005) | ★★★ | ✅ |
 | 10 | `paint-burst` | Paint burst | Sony Bravia "Paint" (2006) | ★★ | 📝 |
 | 11 | `monochrome-wave-wait` | Monochrome epic wait | Guinness "Surfer" (1999) | ★ | 📝 |
 | 12 | `rewind-evolution` | Rewind evolution | Guinness "noitulovE" (2005) | ★★ | 📝 |
