@@ -1,0 +1,14 @@
+{
+  "style": "red-poster-wit",
+  "product": { "name": "Tessera" },
+  "aspect": "16:9",
+  "color": "#f5170a",
+  "music": { "file": null, "bpm": 96 },
+  "posters": [
+    "Order coffee in Lisbon | without pointing.",
+    "Learn Italian. | Gesture less.",
+    "Ten minutes a day. | Subtitles optional.",
+    "Finally understand | what the waiter said about you."
+  ],
+  "end": { "tagline": "Languages, ten minutes at a time." }
+}

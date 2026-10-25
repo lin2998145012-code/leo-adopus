@@ -15,6 +15,7 @@
   <img src="docs/demos/inkwell-search.gif" alt="搜索框里的故事，16:9" width="560">
   <img src="docs/demos/orrin-speaker.gif" alt="零件连锁反应，16:9" width="560">
   <img src="docs/demos/pip-kettle.gif" alt="留白自嘲，4:5" width="252">
+  <img src="docs/demos/tessera-posters.gif" alt="红色海报妙语，16:9" width="560">
 </p>
 
 上面每支片子都只用一份简短的 brief、完全由代码生成，配乐也由代码原创合成。
@@ -26,8 +27,9 @@
 | [搜索框里的故事](styles/search-box-story/STYLE.md) | Google "Parisian Love"（2009） | [写作 App，16:9](docs/demos/inkwell-search.mp4) |
 | [零件连锁反应](styles/chain-reaction/STYLE.md) | Honda "Cog"（2003） | [音箱，16:9](docs/demos/orrin-speaker.mp4) |
 | [留白自嘲](styles/whitespace-humble/STYLE.md) | Volkswagen "Think Small"（1959） | [水壶，4:5](docs/demos/pip-kettle.mp4) · [海报](docs/demos/pip-kettle-poster.jpg) |
+| [红色海报妙语](styles/red-poster-wit/STYLE.md) | The Economist 红色海报（1988–） | [语言 App，16:9](docs/demos/tessera-posters.mp4) |
 
-> 🚧 目前 50 个风格中有 5 个可以渲染，其余见[风格索引](styles/README.md)。点个 Star 关注进展。
+> 🚧 目前 50 个风格中有 6 个可以渲染，其余见[风格索引](styles/README.md)。点个 Star 关注进展。
 
 ## 在 Claude Code 里使用
 
@@ -62,6 +64,10 @@
 
 ```text
 给我的水壶 Pip 做一张 Think Small 风格的平面广告和视频，产品图是 ./kettle.png。它只能装两杯水，就把这一点当卖点。
+```
+
+```text
+给语言学习 App Tessera 做一组红色海报妙语：四句关于用户的俏皮话，要视频也要静态海报。
 ```
 
 Claude 会先检查环境，问清缺少的信息，给你看分镜，再渲染出 MP4。也可以直接运行 `/leo-adopus:make-ad`。
@@ -118,6 +124,7 @@ node core/cli.mjs new ../my-chain --style chain-reaction --name Orrin \
 - 搜索框故事 kit 绘制一个搜索页，用真人般的节奏打字，配合自动补全、特殊结果、鼠标指针和镜头运动，底下是钢琴配乐和键盘声。
 - 连锁反应 kit 用 three.js 搭出三维房间和机械零件，模拟每一次滚动、下落、弹跳和摆动，用一个不间断的跟拍长镜头跟着它们，并把每一次碰撞变成声音。
 - 留白自嘲 kit 排出一页黑白杂志广告：灰色大片留白里一个小小的产品、一句标题、三栏正文，再把"读这页广告"拍成视频，最后停在完整的版面上。
+- 红色海报 kit 把一句白色衬线字以能放下的最大字号、均衡的行长排在红底上，按节拍切换一组海报，每句的包袱比铺垫晚一拍出现。
 
 ## "像"的规则
 
@@ -139,6 +146,6 @@ node core/cli.mjs new ../my-chain --style chain-reaction --name Orrin \
 
 ## 致谢与许可
 
-代码采用 [MIT 许可](LICENSE)，demo 影片以 CC BY 4.0 发布，[Inter](assets/fonts/inter/OFL.txt)、[DM Sans](assets/fonts/dm-sans/OFL.txt)、[Arimo](assets/fonts/arimo/OFL.txt) 和 [Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt) 和 [Jost](assets/fonts/jost/OFL.txt) 字体采用 SIL Open Font License，[three.js](assets/vendor/three/LICENSE) 采用 MIT 许可。
+代码采用 [MIT 许可](LICENSE)，demo 影片以 CC BY 4.0 发布，[Inter](assets/fonts/inter/OFL.txt)、[DM Sans](assets/fonts/dm-sans/OFL.txt)、[Arimo](assets/fonts/arimo/OFL.txt) 和 [Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt)、[Jost](assets/fonts/jost/OFL.txt) 和 [Playfair Display](assets/fonts/playfair-display/OFL.txt) 字体采用 SIL Open Font License，[three.js](assets/vendor/three/LICENSE) 采用 MIT 许可。
 
 动作数据来自 [mocap.cs.cmu.edu](http://mocap.cs.cmu.edu)，该数据库由 NSF EIA-0196217 资助创建。

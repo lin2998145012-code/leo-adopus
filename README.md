@@ -15,6 +15,7 @@
   <img src="docs/demos/inkwell-search.gif" alt="Search box story, 16:9" width="560">
   <img src="docs/demos/orrin-speaker.gif" alt="Parts chain reaction, 16:9" width="560">
   <img src="docs/demos/pip-kettle.gif" alt="Whitespace self-deprecation, 4:5" width="252">
+  <img src="docs/demos/tessera-posters.gif" alt="Red poster wit, 16:9" width="560">
 </p>
 
 Every film above was made from a short brief, entirely in code, with an
@@ -27,8 +28,9 @@ original soundtrack composed in code.
 | [Search box story](styles/search-box-story/STYLE.md) | Google "Parisian Love" (2009) | [writing app, 16:9](docs/demos/inkwell-search.mp4) |
 | [Parts chain reaction](styles/chain-reaction/STYLE.md) | Honda "Cog" (2003) | [speaker, 16:9](docs/demos/orrin-speaker.mp4) |
 | [Whitespace self-deprecation](styles/whitespace-humble/STYLE.md) | Volkswagen "Think Small" (1959) | [kettle, 4:5](docs/demos/pip-kettle.mp4) · [poster](docs/demos/pip-kettle-poster.jpg) |
+| [Red poster wit](styles/red-poster-wit/STYLE.md) | The Economist red posters (1988–) | [language app, 16:9](docs/demos/tessera-posters.mp4) |
 
-> 🚧 5 of 50 styles render today. The rest are planned in the
+> 🚧 6 of 50 styles render today. The rest are planned in the
 > [style index](styles/README.md). Star the repo to follow along.
 
 ## Use it in Claude Code
@@ -69,6 +71,11 @@ tagline "Every part, in tune."
 ```text
 Make a Think-Small-style print ad and video for my kettle Pip (./kettle.png).
 It only holds two cups; make that the point.
+```
+
+```text
+Make red-poster-wit posters for Tessera, a language app: four witty lines
+about its users, as a video and as stills.
 ```
 
 Claude checks your machine, asks for anything missing, shows you a
@@ -122,6 +129,11 @@ Make a Think-Small-style print ad and video for my kettle Pip (./kettle.png).
 It only holds two cups; make that the point.
 ```
 
+```text
+Make red-poster-wit posters for Tessera, a language app: four witty lines
+about its users, as a video and as stills.
+```
+
 Everything ends up in the film's `brief.json`, which you can edit by hand,
 down to every shot or card. Each style file has a Brief section with the
 full format.
@@ -148,6 +160,9 @@ full format.
 - The whitespace-humble kit sets a black-and-white magazine page — a small
   product in a vast gray photograph, a headline, three columns of copy —
   and films it being read, ending on the finished page.
+- The red-poster-wit kit sets one line of white serif on red at the largest
+  size that fits, in even lines, and cuts a run of posters on the beat,
+  each punchline landing a beat after its setup.
 
 ```text
 .claude-plugin/        plugin and marketplace manifests
@@ -155,7 +170,8 @@ skills/make-ad/        the skill Claude follows
 core/                  CLI, Chrome driver, synthesizer, motion-capture tools
 styles/<slug>/         STYLE.md, and kit/ when the style renders
 examples/              the briefs behind the demos
-assets/fonts/          Inter, DM Sans, Arimo, Libre Baskerville, Jost (SIL OFL)
+assets/fonts/          Inter, DM Sans, Arimo, Libre Baskerville, Jost,
+                       Playfair Display (SIL OFL)
 assets/vendor/three/   three.js (MIT), used by the 3D kits
 ```
 
@@ -187,8 +203,9 @@ repository — code, styles, music and demos — is original work.
 Code is released under the [MIT License](LICENSE). Demo films are released
 under CC BY 4.0. The [Inter](assets/fonts/inter/OFL.txt),
 [DM Sans](assets/fonts/dm-sans/OFL.txt), [Arimo](assets/fonts/arimo/OFL.txt),
-[Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt) and
-[Jost](assets/fonts/jost/OFL.txt) fonts are
+[Libre Baskerville](assets/fonts/libre-baskerville/OFL.txt),
+[Jost](assets/fonts/jost/OFL.txt) and
+[Playfair Display](assets/fonts/playfair-display/OFL.txt) fonts are
 under the SIL Open Font License. [three.js](assets/vendor/three/LICENSE) is
 under the MIT License.
 

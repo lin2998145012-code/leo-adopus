@@ -15,5 +15,6 @@ node core/cli.mjs render examples/<name>
 | [`inkwell-search`](inkwell-search/brief.json) | search-box-story | a fictional writing app, from first page to dedication | 59 s, 16:9 |
 | [`orrin-speaker`](orrin-speaker/brief.json) | chain-reaction | a fictional speaker from `speaker.png`, five links | 34 s, 16:9 |
 | [`pip-kettle`](pip-kettle/brief.json) | whitespace-humble | a fictional two-cup kettle, "Two cups." | 27 s, 4:5 |
+| [`tessera-posters`](tessera-posters/brief.json) | red-poster-wit | a fictional language app, four posters | 33 s, 16:9 |
 
 The rendered films are in [`docs/demos`](../docs/demos).

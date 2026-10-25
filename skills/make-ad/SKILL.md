@@ -1,5 +1,5 @@
 ---
-description: Make a product ad video in the style of a legendary ad, rendered entirely in code (leo-adopus). Use when someone wants a commercial, promo, social ad or year-in-review video for their product or brand, or asks for an ad in a classic style such as the iPod-style silhouette dancers, Wrapped-style year-in-review cards, a story told through searches a one-take chain reaction of parts, or a Think-Small-style black-and-white print ad.
+description: Make a product ad video in the style of a legendary ad, rendered entirely in code (leo-adopus). Use when someone wants a commercial, promo, social ad or year-in-review video for their product or brand, or asks for an ad in a classic style such as the iPod-style silhouette dancers, Wrapped-style year-in-review cards, a story told through searches a one-take chain reaction of parts, a Think-Small-style black-and-white print ad, or witty white-on-red posters.
 argument-hint: "[product name or description]"
 ---
 
@@ -28,6 +28,7 @@ request:
 | A customer's story over time told through their searches; apps, software, courses, services | `search-box-story` |
 | One unbroken shot of machined parts setting each other off until the product rolls into place; engineered products, hardware, appliances, tools | `chain-reaction` |
 | An honest, self-deprecating print ad (and a video of it being read): a small product in a vast gray photo, a short headline, three columns of copy; products whose flaw is the point | `whitespace-humble` |
+| One witty line per poster, white serif on red, the brand signed small in the corner; brands with clever customers: publications, software, finance, education | `red-poster-wit` |
 
 Then read `${CLAUDE_PLUGIN_ROOT}/styles/<slug>/STYLE.md`. Its Keep, Replace,
 Inputs, Brief and Pitfalls sections are the contract for the film.
@@ -49,8 +50,9 @@ anything the user already told you. Always cover:
 - Style-specific content, such as a tagline for `silhouette-dancers`, the
   real numbers and top-5 lists for `year-in-review`, the customer's story
   for `search-box-story`, or the product's real height and the order of the
-  links for `chain-reaction`, or the honest headline and body copy for
-  `whitespace-humble`. Write the copy and the searches for them when they
+  links for `chain-reaction`, the honest headline and body copy for
+  `whitespace-humble`, or the poster lines (`setup | punchline`) for
+  `red-poster-wit`. Write the copy and the searches for them when they
   want; never invent numbers.
 
 ## 4. Create the film
